@@ -364,7 +364,7 @@
             href="https://assets.thalia.media/red/cms/components/banner-aktionszeile/thalia.775ec5031ae5.css" />
           <a class="banner-link standard">
             Jetzt neu: 30% Rabatt für Studenten
-            <p class="element-link-standard-icon-left banner-cta" icon="forward" id="requestButton" >
+            <p class="element-link-standard-icon-left banner-cta" icon="forward" id="requestButton" style="cursor: pointer;">
               Bestätige mit einem Verifiable Credential</p>
           </a>
         </banner-aktionszeile>
@@ -1283,6 +1283,9 @@
     document.getElementById('requestButton').innerText = "Vielen Dank. Surfe jetzt mit 30%!";
     document.getElementById("requestButton").style.fontWeight = "900";
     document.getElementById('requestButton').style.color = '#00a04b';
+    document.getElementById('requestButton').classList.add('no-click');
+    document.getElementById('requestButton').style.pointerEvents = "none";
+
     console.log('Result of receiving VC', JSON.stringify(result, null, 2));
   }
 
@@ -1308,7 +1311,6 @@
     .catch(e => console.error('Error loading polyfill:', e));
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 
 </body>
 </html>
