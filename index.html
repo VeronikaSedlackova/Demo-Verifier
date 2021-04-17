@@ -13,7 +13,6 @@
   <meta name="mandant" content="2">
   <!-- Compiled and minified Materialize JS/CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
   <!--Credential Handler API Polyfill-->
   <script src="https://unpkg.com/credential-handler-polyfill@2.1.3/dist/credential-handler-polyfill.min.js"></script>
 
@@ -164,29 +163,7 @@
               data-api-dynamisch="/suche/v1/suchhistorie.html">
               <link rel="stylesheet" type="text/css"
                 href="https://assets.thalia.media/ocsassets/suchocs/css/suche-slot/thalia-b60c9b7ebcff6dec8763f2c33168d73a.css">
-              <form class="suche-formular" action="/suche" method="get">
-                <select class="kategorieauswahl" name="filterPATHROOT" aria-label="Kategorievorauswahl für die Suche">
-                  <option value="">Alle</option>
-                  <option value="c2">B&uuml;cher</option>
-                  <option value="c4893">eBooks</option>
-                  <option value="c8986">eReader &amp;
-                    Zubeh&ouml;r</option>
-                  <option value="c4376">Filme</option>
-                  <option value="c5067">Games</option>
-                  <option value="c3677">H&ouml;rbuch</option>
-                  <option value="c3714">H&ouml;rbuch-Downloads
-                  </option>
-                  <option value="c3738">Musik</option>
-                  <option value="c3962">Software</option>
-                  <option value="c4770">Spielwaren</option>
-                  <option value="c17794">Wohnen</option>
-                </select>
-                <label class="dynamische-kategorieauswahl" aria-hidden="true"></label>
-                <input class="kundeneingabe" type="search" placeholder="Titel, Autor, Stichwort, ISBN" name="sq"
-                  autocomplete="off" autocorrect="off" aria-label="Eingabefeld für den Suchbegriff">
-                <button type="reset" interaction="suche-zuruecksetzen">Suche-Formular zurücksetzen</button>
-                <button type="submit" interaction="suchanfrage-abschicken">Suchanfrage abschicken</button>
-              </form>
+             
               <dialog class="suche-overlay">
                 <div class="suche-inhalt-wrapper scroll">
                   <section class="suche-dynamisch"></section>
@@ -1243,7 +1220,7 @@
 
 <div class="container">
   <div class="card-panel hide" id="resultsPanel">
-    <h6>Verwendeter Verifiable Credential:</h6>
+    <h6><u>Verwendeter Verifiable Credential:</u></h6>
     <pre><code id="getResults"></code></pre>
   </div>
 </div>
@@ -1273,21 +1250,60 @@
       }
     }
 
-    console.log('Requesting credential...');
+    //console.log('Requesting credential...');
     document.getElementById('getResults').innerText = 'Requesting credential...';
 
     const result = await navigator.credentials.get(credentialQuery);
 
     document.getElementById('resultsPanel').classList.remove('hide');
-    document.getElementById('getResults').innerText = JSON.stringify(result, null, 2);
+    //document.getElementById('getResults').innerText = JSON.stringify(result, null, 2);
+    document.getElementById('getResults').innerText = JSON.stringify(verifiablePresentationThalia, null, 2);
     document.getElementById('requestButton').innerText = "Vielen Dank. Surfe jetzt mit 30%!";
     document.getElementById("requestButton").style.fontWeight = "900";
     document.getElementById('requestButton').style.color = '#00a04b';
     document.getElementById('requestButton').classList.add('no-click');
     document.getElementById('requestButton').style.pointerEvents = "none";
 
-    console.log('Result of receiving VC', JSON.stringify(result, null, 2));
+    //console.log('Result of receiving VC', JSON.stringify(result, null, 2));
   }
+
+  const verifiablePresentationThalia = {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1"
+    ],
+    "verifiableCredential": [{
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://www.w3.org/2018/credentials/examples/v1"
+      ],
+      "id": "http://example/uniqueIDofTheCredentials/1872",
+      "type": ["VerifiableCredential", "UniversityCredential"],
+      "issuer": "did:example:university",
+      "issuanceDate": "2021-03-01T19:73:24Z",
+      "credentialSubject": {
+        "id": "did:example:alice",
+        "alumniOf": {
+          "id": "did:example:university",
+          "name": {
+            "value": "TH Nürnberg",
+          }
+        }
+      },
+      "proof": {
+        "type": "RsaSignature2018",
+        "created": "2021-03-01T19:73:24Z",
+        "verificationMethod": "did:example:university",
+        "jws": "eyJhbGciOiJSUziYjY0Il19..TCYt5XsITJX1CxPCT8zS245-krQyHUdBBPM"
+      }
+    }],
+    "proof": {
+        "type": "RsaSignature2018",
+        "created": "2021-04-01T21:19:10Z",
+        "verificationMethod": "did:example:alice",
+        "jws": "DBjbefqiw329w324..wfjbQEHb243brh9wfwbsdwhqUY4W87"
+      }
+  };
 
   function ready(fn) {
     if (document.readyState !== 'loading') {
