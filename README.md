@@ -19,7 +19,7 @@ To test this flow all repositories are needed.
 
 1. Run `npm install`
 2. Run `npm start`
-3. Visit `https://127.0.0.1:8083` or `localholst:<port>`
+3. Visit `https://127.0.0.1:8083` or `localhost:<port>`
 
 
 ## Testing
