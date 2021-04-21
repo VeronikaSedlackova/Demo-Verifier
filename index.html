@@ -1,1327 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-touch-fullscreen" content="YES">
-  <meta name="msapplication-TileColor" content="#ffffff">
-
-  <meta name="apple-itunes-app" content="app-id=973055319">
-  <meta name="analytics" content="UA-39319847-10">
-  <meta name="mandant" content="2">
-  <!-- Compiled and minified Materialize JS/CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!--Credential Handler API Polyfill-->
-  <script src="https://unpkg.com/credential-handler-polyfill@2.1.3/dist/credential-handler-polyfill.min.js"></script>
-
-  <meta show-login-overlay="yes">
-  
-  <title>Thalia Online Shop | Bücher, eBooks, Spielzeug, uvm. kaufen | Thalia</title>
-  <meta name="description"
-    content="Thalia - Online und vor Ort für Sie da ✔ Filialabholung ✔ Vor-Ort-Umtausch ✔ Exklusive Vorteile für Thalia Club-Mitglieder ♥ Willkommen bei Thalia!">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical">
-  <link rel="alternate" hreflang="de-DE">
-
-<style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
-</head>
-
-<body data-thalia-app="">
-  <div id="top" class="ncRoot">
-
-    <style>
-      section:not(.noMarginTop) .moduleRow:not(.row01) {
-        margin-top: .125rem;
-      }
-
-      section:not(.noMarginTop)>.moduleRow:not(.row01) {
-        margin-top: 2rem;
-      }
-    </style>
-
-    <header-global>
-      <link rel="stylesheet"
-        href="https://assets.thalia.media/red/cms/components/header-global/thalia.6c75cedda38a.css" />
-      <div class="header-scripts">
-        <div id="wt_refpoint"></div>
-
-        <cclogin-banner>
-          <link rel="stylesheet"
-            href="https://assets.thalia.media/kim/login/cclogin-banner/style.c5f1ae6e1e9146da9cef.thalia.css">
-          <script defer=""
-            src="https://assets.thalia.media/kim/login/cclogin-banner/main-nomodule.7620aa8cdcb55034574f.js"></script>
-          <b class="cclogin-banner-text"></b>
-        </cclogin-banner>
-
-        <consent-banner-bootstrap data-version="20210315165743_cfceaf6">
-          <script
-            src="https://assets.thalia.media/ocsassets/heimdall/consent-banner-bootstrap/main-nomodule.462e66c840fe4614dcfa.js"
-            defer=""></script>
-        </consent-banner-bootstrap>
-      </div>
-
-      <div class="header-grid">
-
-        <section class="header-filiale">
-          <header-global-filiale component="header-global-filiale">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/header-global-filiale/thalia.c6e8e776a489.css" />
-            <script defer
-              src="https://assets.thalia.media/red/cms/components/header-global-filiale/header-global-filiale.79d714bb72da8cf5226b.js"></script>
-
-            <a class="element-link-small filial-link"
-              interaction="link-filialsuche">Meine Filiale</a>
-
-          </header-global-filiale>
-        </section>
-
-        <section class="header-bonusprogramme">
-          <header-global-bonusprogramme component="header-global-bonusprogramme">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/header-global-bonusprogramme/thalia.27c21e8cbeba.css" />
-            <script> </script>
-
-          </header-global-bonusprogramme>
-        </section>
-
-        <section class="header-logo">
-          <header-global-logo component="header-global-logo">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/header-global-logo/thalia.5f06548a2115.css" />
-            <script> </script>
-
-            <a title="Thalia" class="logo-global" interaction="link-startseite">Thalia
-              Startseite</a>
-
-          </header-global-logo>
-        </section>
-
-        <section class="header-kunde">
-          <header-global-kunde component="header-global-kunde">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/header-global-kunde/thalia.c2211626d9c9.css" />
-
-            <div class="kunde-items">
-
-              <header-global-login>
-                <a class="kunde-item item-login element-link-small" status="1"
-                  interaction="link-login">
-                  Mein Konto
-                </a>
-              </header-global-login>
-
-              <header-global-merkzettel>
-                <a class="kunde-item item-merkzettel element-link-small" count=""
-                  interaction="link-merkzettel">
-                  Merkzettel
-                </a>
-              </header-global-merkzettel>
-
-              <header-global-warenkorb>
-                <a class="kunde-item item-warenkorb element-link-small" count=""
-                  interaction="link-warenkorb">
-                  Warenkorb
-                </a>
-              </header-global-warenkorb>
-
-            </div>
-
-          </header-global-kunde>
-        </section>
-
-        <section class="header-suche">
-          <header-global-suche component="header-global-suche">
-
-            <style>
-              suche-slot[component="search-field"] {
-                width: 100% !important;
-                padding: 0 !important;
-              }
-
-              suche-slot .foundation-fallback {
-                margin: 0 !important;
-              }
-            </style>
-
-
-
-            <a style="display: none" rel="nofollow"></a>
-
-            <suche-slot component="search-field" data-input="leer" data-overlay-bereich="leer"
-              data-overlay-status="initial" data-api-empfehlungen="/api/2/suggest/v1"
-              data-api-dynamisch="/suche/v1/suchhistorie.html">
-              <link rel="stylesheet" type="text/css"
-                href="https://assets.thalia.media/ocsassets/suchocs/css/suche-slot/thalia-b60c9b7ebcff6dec8763f2c33168d73a.css">
-             
-              <dialog class="suche-overlay">
-                <div class="suche-inhalt-wrapper scroll">
-                  <section class="suche-dynamisch"></section>
-                  <section class="suche-empfehlungen"></section>
-                </div>
-              </dialog>
-              <span class="suche-overlay-backdrop" data-backdrop aria-hidden="true"></span>
-              <script
-                src="https://assets.thalia.media/ocsassets/suchocs/js/components/suche-slot-b01f99838d3cd57a0b6309dbd40ede02.js"
-                defer></script>
-            </suche-slot>
-
-
-
-          </header-global-suche>
-        </section>
-        <section class="header-navigation">
-
-          <style>
-            section:not(.noMarginTop) .moduleRow:not(.row01) {
-              margin-top: .125rem;
-            }
-
-            section:not(.noMarginTop)>.moduleRow:not(.row01) {
-              margin-top: 2rem;
-            }
-          </style>
-
-          <header-global-navigation
-            data-active-category="" component="header-global-navigation" impression="product">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/header-global-navigation/thalia.d7ab71595fbe.css" />
-            <script defer
-              src="https://assets.thalia.media/red/cms/components/header-global-navigation/header-global-navigation.ca5ef76f4fbd194cf20c.js"></script>
-
-            <label class="element-link-standard off-canvas-open" for="off-canvas-hamburger" data-test="hamburgerMenu">
-              <span class="icon-hamburger"></span>
-              <small class="aside-menu">Menü</small>
-            </label>
-
-            <input class="off-canvas-hamburger" id="off-canvas-hamburger" name="hamburger" type="checkbox">
-            <label class="off-canvas-aside" for="off-canvas-hamburger"></label>
-
-            <nav role="navigation" class="off-canvas no-scrollbar">
-
-              <label class="off-canvas-close element-text-standard" for="off-canvas-hamburger">
-                <span class="icon-close"></span>
-              </label>
-
-              <ul role="menu" class="logo no-bullets">
-                <li class="item">
-                  <a role="menuitem" title="Thalia Logo" class="off-canvas-logo"
-                    interaction="link-startseite">Thalia Startseite</a>
-                </li>
-              </ul>
-
-              <ul role="menu" class="main-nav no-bullets no-scrollbar" interaction="navigation-links">
-                <li class="item" data-flyout="be68">
-                  <a role="menuitem" caption="Bücher"  target="">
-                    Bücher
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="c87a">
-                  <a role="menuitem" caption="eBooks" target="">
-                    eBooks
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="b4c9">
-                  <a role="menuitem" caption="tolino" target="">
-                    tolino
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="ce96">
-                  <a role="menuitem" caption="Kalender" target="">
-                    Kalender
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="65cd">
-                  <a role="menuitem" caption="Spielwaren" target="">
-                    Spielwaren
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="a595">
-                  <a role="menuitem" caption="Filme" target="">
-                    Filme
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="3f47">
-                  <a role="menuitem" caption="Musik" target="">
-                    Musik
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="984e">
-                  <a role="menuitem" caption="Wohnen" target="">
-                    Wohnen
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="71d5">
-                  <a role="menuitem" caption="Technik" target="">
-                    Technik
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="a602">
-                  <a role="menuitem" caption="Schreibwaren" target="">
-                    Schreibwaren
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="a71d">
-                  <a role="menuitem" caption="Geschenkkarte" target="">
-                    Geschenkkarte
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="d23d">
-                  <a role="menuitem" caption="SALE" target="">
-                    SALE
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-                <li class="item" data-flyout="e3bd">
-                  <a role="menuitem" caption="Aktuelles"target="">
-                    Aktuelles
-                    <span class="item-overlay"></span>
-                  </a>
-                </li>
-              </ul>
-
-              <ul class="controls" interaction="slide-controls">
-                <li>
-                  <button class="prev" caption="previous">
-                    <span class="icon-prev"></span>
-                  </button>
-                </li>
-                <li>
-                  <button class="next" caption="next">
-                    <span class="icon-next"></span>
-                  </button>
-                </li>
-              </ul>
-
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>Das Leseratten-Paradies | Online Shop</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="width-1200">
+            <section class="text-right text-dark-blue text-small-80">
+                <a href="konto.html">Mein Konto</a> | <a href="merkzettel.html">Merkzettel</a> | <a href="warenkorb.html">Warenkorb</a>
+            </section>
+            <section class="title text-center text-bold">
+                Das
+                <br/>
+                Leseratten-Paradies
+            </section>
+            <nav class="menu">
+                <ul class="flex flex-space-between text-bold">
+                    <li>Bücher</li>
+                    <li>eBooks</li>
+                    <li>Kalender</li>
+                    <li>Spielwaren</li>
+                    <li>Filme</li>
+                    <li>Musik</li>
+                    <li>Wohnen</li>
+                    <li>Technik</li>
+                    <li>Schreibwaren</li>
+                    <li>Geschenkkarte</li>
+                    <li>SALE</li>
+                    <li>Aktuelles</li>
+                </ul>
             </nav>
-          </header-global-navigation>
+        </header>
+        <section class="banner text-center">
+            <p class="text-bold">Jetzt neu: 30% Rabatt für Studenten</p>
+            <p class="text-small-80"><a id="requestButton" class="no-decoration arrow-before clickable">Bestätige mit einem Verifiable Credential</a></p>
         </section>
-      </div>
-
-      <div class="gradient"></div>
-
-    </header-global>
-
-    <div class="row">
-      <div class="xlarge-12 column">
-
-        <link rel="stylesheet" type="text/css"
-          href="https://assets.thalia.media/ocsassets/empfehlungenocs/css/default/spinner-4e76b522869d03af57072149eddf3949.css">
-        <link rel="stylesheet" type="text/css"
-          href="https://assets.thalia.media/ocsassets/empfehlungenocs/css/default/sliderstyles-cf9a0c67f584a18bd4f5696c421621cb.css">
-        <script
-          src="https://assets.thalia.media/ocsassets/empfehlungenocs/js/empfehlungenLoader-9824cd46384b32eb04da5bc6a29fbce4.js"></script>
-        
-
-        <banner-aktionszeile component="banner-aktionszeile" impression="promotion"
-          promotion-name="Jetzt neu: Rund um die Uhr für Sie erreichbar"
-          promotion-creative="Jetzt neu: Rund um die Uhr für Sie erreichbar">
-          <link rel="stylesheet"
-            href="https://assets.thalia.media/red/cms/components/banner-aktionszeile/thalia.775ec5031ae5.css" />
-          <a class="banner-link standard">
-            Jetzt neu: 30% Rabatt für Studenten
-            <p class="element-link-standard-icon-left banner-cta" icon="forward" id="requestButton" style="cursor: pointer;">
-              Bestätige mit einem Verifiable Credential</p>
-          </a>
-        </banner-aktionszeile>
-
-
-        <banner-slider-vis component="banner-slider-vis" data-slide-push="1">
-          <link rel="stylesheet"
-            href="https://assets.thalia.media/red/cms/components/banner-slider-vis/thalia.4cda90afe5f6.css" />
-          <script
-            src="https://assets.thalia.media/red/cms/components/banner-slider-vis/banner-slider-vis.4fd67847ccb34b2786a3.js"
-            defer></script>
-
-          <section class="slider-vis-main">
-            <ul class="slider-vis scroll" impression="promotion"
-              promotion-name="home Banner-Slider VIS TDE (12.04. - 13.04.)  ">
-              <li class="slide-vis bildMitTextbox">
-                <picture class="slide-picture">
-                  <source srcset="https://assets.thalia.media/img/cms/09949d936d69a541e3aceb428e1e6a968cf3acbc.jpg"
-                    media="(max-width: 575px)">
-                  <img class="slide-background"
-                    src="https://assets.thalia.media/img/cms/b35fd11130192c0745f1a571d75b5f3f3733690a.jpg"
-                    alt="Preisaktion" lazyload="1" loading="lazy">
-                </picture>
-
-                <div class="textbox  ">
-                  <p class="label">ÜBER 150.000 ARTIKEL</p>
-                  <h2 class="headline">Bis zu 15% & mehr reduziert</h2>
-                  <h3 class="subheadline">Spielwaren, Musik & mehr für einen guten Start in den Frühling</h3>
-                </div>
-
-                <div class="products">
-                </div>
-
-                <a class="layered-link" promotion-creative="Bis zu 15% & mehr reduziert"
-                  target=""></a>
-
-              </li>
-              <li class="slide-vis bildMitTextbox">
-                <picture class="slide-picture">
-                  <source srcset="https://assets.thalia.media/img/cms/ac8ca5ff47931a3997893b34bb88dc7391d5096d.jpg"
-                    media="(max-width: 575px)">
-                  <img class="slide-background"
-                    src="https://assets.thalia.media/img/cms/64c92c167de86a6813cc470310426e1b8ea2b15e.jpg" alt="tolino"
-                    lazyload="1" loading="lazy">
-                </picture>
-
-                <div class="textbox  ">
-                  <img class="logo-label"
-                    src="https://assets.thalia.media/img/cms/6357992d24daed40e3c564002bf45a6a3c08b59e.png" alt=""
-                    lazyload="1" loading="lazy" />
-                  <h2 class="headline">tolino eReader: 30€ sparen</h2>
-                  <h3 class="subheadline">Jetzt Angebot sichern</h3>
-                </div>
-
-                <div class="products">
-                </div>
-                <a class="layered-link" promotion-creative="tolino eReader: 30€ sparen"
-                  target=""></a>
-
-              </li>
-              <li class="slide-vis buchliebe">
-
-                <picture class="slide-picture">
-                  <source srcset="https://assets.thalia.media/img/cms/0fd1ea5c5d8bec828a9bab6370b13a6cb154f1f1.jpg"
-                    media="(max-width: 575px)">
-                  <img class="slide-background"
-                    src="https://assets.thalia.media/img/cms/f0c76e9a37de9397692fe57aa276d478f5e10b3e.jpg"
-                    alt="Starke Frauen " lazyload="1" loading="lazy">
-                </picture>
-
-                <div class="textbox  ">
-                  <h2 class="headline">Weil Gleichberechtigung kein Trendwort ist</h2>
-                  <h3 class="subheadline">Bücher über inspirierende Frauen</h3>
-                </div>
-
-
-                <a class="layered-link"
-                  promotion-creative="Weil Gleichberechtigung kein Trendwort ist" target=""></a>
-
-              </li>
-              <li class="slide-vis bildMitTextbox">
-
-                <picture class="slide-picture">
-                  <source srcset="https://assets.thalia.media/img/cms/0076a3ea5512ce6db31a53278e2f56e39aa20e09.jpg"
-                    media="(max-width: 575px)">
-                  <img class="slide-background"
-                    src="https://assets.thalia.media/img/cms/65a569c3bddd96261f2ecbb1a4aba72907097e50.jpg"
-                    alt="Ab nach draußen" lazyload="1" loading="lazy">
-                </picture>
-
-                <div class="textbox  ">
-                  <p class="label">Auszeit</p>
-                  <h2 class="headline">Ab nach draußen</h2>
-                  <h3 class="subheadline">Die schönsten Orte vor der Haustür entdecken</h3>
-                </div>
-
-                <div class="products">
-                </div>
-
-                <a class="layered-link"
-                  promotion-creative="Ab nach draußen" target=""></a>
-
-              </li>
-              <li class="slide-vis bildMitTextbox">
-
-                <picture class="slide-picture">
-                  <source srcset="https://assets.thalia.media/img/cms/9ef75a93af4ecbca76d010f6f3407450d102c42b.jpg"
-                    media="(max-width: 575px)">
-                  <img class="slide-background"
-                    src="https://assets.thalia.media/img/cms/1c1abcda1b94863f44fa012d1801150907b29f6b.jpg"
-                    alt="Gewinnspiel" lazyload="1" loading="lazy">
-                </picture>
-
-                <div class="textbox transparent inverted">
-                  <p class="label">Gewinnspiel</p>
-                  <h2 class="headline">Voller Glücksgefühle in den Frühling starten</h2>
-                  <h3 class="subheadline">Jetzt mitmachen und tolle Preise gewinnen</h3>
-                </div>
-
-                <div class="products">
-                </div>
-
-                <a class="layered-link" promotion-creative="Voller Glücksgefühle in den Frühling starten" target=""></a>
-              </li>
+        <main>            
+            <section class="artikel">
+                <ul class="artikel-liste flex flex-center">
+                    <li class="buch">
+                        <a>VANITAS - Rot wie Feuer</a>
+                        <img src="images/vanitas.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Ursula Poznanski</li>
+                            <li class="typ">Buch<br />(Taschenbuch)</li>
+                            <li class="preis">16,99&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Dunkelkammer</a>
+                        <img src="images/dunkelkammer.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Bernhard Aichner</li>
+                            <li class="typ">Buch<br />(Taschenbuch)</li>
+                            <li class="preis">17,00&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Der große Sommer</a>
+                        <img src="images/sommer.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Ewald Arenz</li>
+                            <li class="typ">Buch<br />(gebundene Ausgabe)</li>
+                            <li class="preis">20,00&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Du kannst kein Zufall sein</a>
+                        <img src="images/zufall.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">James Bailey</li>
+                            <li class="typ">Buch<br />(Taschenbuch)</li>
+                            <li class="preis">10,99&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Playlist</a>
+                        <img src="images/playlist.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Sebastian Fitzek</li>
+                            <li class="typ">Buch<br />(gebundene Ausgabe)</li>
+                            <li class="preis">22,99&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Was, wenn wir einfach die Welt retten?</a>
+                        <img src="images/welt.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Frank Schätzing</li>
+                            <li class="typ">Buch<br />(gebundene Ausgabe)</li>
+                            <li class="preis">20,00&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Deeply</a>
+                        <img src="images/deeply.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Ava Reed</li>
+                            <li class="typ">Buch<br />(Taschenbuch)</li>
+                            <li class="preis">12,90&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Über Menschen</a>
+                        <img src="images/menschen.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">Juli Zeh</li>
+                            <li class="typ">Buch<br />(gebundene Ausgabe)</li>
+                            <li class="preis">22,00&euro;</li>
+                        </ul>
+                    </li>
+                    <li class="buch">
+                        <a>Miss Merkel</a>
+                        <img src="images/merkel.jpeg" />
+                        <ul class="artikel-details">
+                            <li class="autor">David Safier</li>
+                            <li class="typ">Buch<br />(Taschenbuch)</li>
+                            <li class="preis">16,00&euro;</li>
+                        </ul>
+                    </li>
+                  </ul>
+            </section>
+        </main>
+        <section class="spacer">&nbsp;</section>
+        <footer class="legal">
+            <ul class="flex flex-center text-small-90">
+                <li><a href="agb.html">AGB</a></li>
+                <li><a href="impressum.html">Impressum</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="datenschutz.html">Datenschutz</a></li>
             </ul>
-
-            <ul class="controls-vis">
-              <li>
-                <a class="button-vis prev-vis" interaction="banner-slider-controls"
-                  caption="Vorheriges Vorschaubild"></a>
-              </li>
-              <li>
-                <a class="button-vis next-vis" interaction="banner-slider-controls" caption="Nächstes Vorschaubild"></a>
-              </li>
+        </footer>
+        <footer class="benefits-list">
+            <ul class="flex flex-center text-small-90">
+                <li>kostenlose Filialabholung</li>
+                <li>Gratis-Buchversand innerhalb Deutschlands</li>
+                <li>Scan & Go</li>
             </ul>
-          </section>
+        </footer>
+        <script src="https://unpkg.com/credential-handler-polyfill@2.1.3/dist/credential-handler-polyfill.min.js"></script>
+        <script src="js/script.js"></script>
 
-          <section class="tab-container-vis">
-            <div class="tabs-vis">
-              <a class="label-tab banner-slider-vis-slide" for="internal-name-slide"
-                interaction="home Banner-Slider VIS TDE (12.04. - 13.04.)  " caption="Tab 1">
-                <span class="label-link">
-                  <p class="label-name">Spielwaren & mehr reduziert</p>
-                </span>
-              </a>
-              <a class="label-tab banner-slider-vis-slide" for="internal-name-slide"
-                interaction="home Banner-Slider VIS TDE (12.04. - 13.04.)  " caption="Tab 2">
-                <span class="label-link">
-                  <p class="label-name">tolino eReader reduziert</p>
-                </span>
-              </a>
-              <a class="label-tab banner-slider-vis-slide" for="internal-name-slide"
-                interaction="home Banner-Slider VIS TDE (12.04. - 13.04.)  " caption="Tab 3">
-                <span class="label-link">
-                  <p class="label-name">Inspirierende Frauen</p>
-                </span>
-              </a>
-              <a class="label-tab banner-slider-vis-slide" for="internal-name-slide"
-                interaction="home Banner-Slider VIS TDE (12.04. - 13.04.)  " caption="Tab 4">
-                <span class="label-link">
-                  <p class="label-name">Ab nach draußen</p>
-                </span>
-              </a>
-              <a class="label-tab banner-slider-vis-slide" for="internal-name-slide"
-                interaction="home Banner-Slider VIS TDE (12.04. - 13.04.)  " caption="Tab 5">
-                <span class="label-link">
-                  <p class="label-name">Gewinnspiel</p>
-                </span>
-              </a>
-            </div>
-          </section>
-        </banner-slider-vis>
-
-
-        <content-text component="content-text" id="">
-          <link rel="stylesheet"
-            href="https://assets.thalia.media/red/cms/components/content-text/thalia.2025448ae1d9.css" />
-          <script src="https://assets.thalia.media/red/cms/components/content-text/content-text.32f36a82d492067684fa.js"
-            defer></script>
-
-          <article class="content-text content-text--thaliaBlau ">
-            <div class="element-text-standard content-text-text ">
-              <!-- alternativ auch zusätzlich 'rechts' oder 'zentriert' -->
-              <p style="text-align: center;"><span style="color: #ffffff; font-size: 18pt;"><strong><a
-                      style="color: #ffffff;">Unsere Buchhandlungen haben f&uuml;r Sie
-                      ge&ouml;ffnet.</a></strong></span></p>
-              <p style="text-align: center;"><span style="color: #ffffff; font-size: 14pt;"><a style="color: #ffffff;">Bitte beachten Sie die lokalen Vorgaben und
-                    &Ouml;ffnungszeiten.&nbsp;</a></span></p>
-              <p style="text-align: center;"><span style="color: #ffffff; font-size: 14pt;"><a style="color: #ffffff;">&gt; Mehr erfahren</a></span></p>
-            </div>
-          </article>
-        </content-text>
-
-
-
-        <section>
-          <slider-artikel data-slide-push="2" component="home Artikelslider Buch TDE" impression="product">
-            <link rel="stylesheet"
-              href="https://assets.thalia.media/red/cms/components/slider-artikel/thalia.fd623d7491c8.css" />
-            <script defer
-              src="https://assets.thalia.media/red/cms/components/slider-artikel/slider-artikel.ec71ef5c62eb6bb27b9b.js"></script>
-
-          
-            <ul class="artikel-liste scroll">
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059475085" product-price="16.99" product-avail="Sofort lieferbar">VANITAS - Rot wie
-                  Feuer von von Ursula Poznanski</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/fc290178779b3c1c10f46180319c197a877f5df4-00-08.jpeg"
-                    alt="VANITAS - Rot wie Feuer von von Ursula Poznanski" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">VANITAS - Rot wie Feuer</li>
-                  <li class="element-text-standard detail autor">von Ursula Poznanski</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(28)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783426226889">
-                    16,99
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link" 
-                  product-id="A1059363866" product-price="17.00" product-avail="Sofort lieferbar">Dunkelkammer von von
-                  Bernhard Aichner</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/0a58605839313e0fbc5bfe981209731c3a85737d-00-08.jpeg"
-                    alt="Dunkelkammer von von Bernhard Aichner" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Dunkelkammer</li>
-                  <li class="element-text-standard detail autor">von Bernhard Aichner</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(24)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783442757848">
-
-                    17,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059391165" product-price="20.00" product-avail="Sofort lieferbar">Der große Sommer von
-                  von Ewald Arenz</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/00d6e25a8d69ed32978b4d34a925f30523f3237a-00-08.jpeg"
-                    alt="Der große Sommer von von Ewald Arenz" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Der große Sommer</li>
-                  <li class="element-text-standard detail autor">von Ewald Arenz</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(108)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783832181536">
-
-                    20,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059384526" product-price="10.99" product-avail="Sofort lieferbar">Du kannst kein Zufall
-                  sein von von James Bailey</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/ec49e5ea0d50af75b9e63e85dcc688aa0f599025-00-08.jpeg"
-                    alt="Du kannst kein Zufall sein von von James Bailey" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Du kannst kein Zufall sein</li>
-                  <li class="element-text-standard detail autor">von James Bailey</li>
-                  <li class="element-rating-standard detail bewertung" rating="4">
-                    <span class="element-text-standard-soft">(33)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783426307946">
-
-                    10,99
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1060525402" product-price="22.99"
-                  product-avail="Erscheint demnächst (Neuerscheinung)">Playlist von von Sebastian Fitzek</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/f5c34ef3013dba87d0a2e2ca0a441226d5284dee-00-08.jpeg"
-                    alt="Playlist von von Sebastian Fitzek" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Playlist</li>
-                  <li class="element-text-standard detail autor">von Sebastian Fitzek</li>
-                  <li class="element-rating-standard detail bewertung" rating="0">
-                    <span class="element-text-standard-soft">(0)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783426281567">
-
-                    22,99
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059868281" product-price="20.00" product-avail="Erscheint demnächst">Was, wenn wir
-                  einfach die Welt retten? von von Frank Schätzing</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/df76f34adc49233afb2cf8e7a36075751aaadd07-00-08.jpeg"
-                    alt="Was, wenn wir einfach die Welt retten? von von Frank Schätzing" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Was, wenn wir einfach die Welt retten?</li>
-                  <li class="element-text-standard detail autor">von Frank Schätzing</li>
-                  <li class="element-rating-standard detail bewertung" rating="0">
-                    <span class="element-text-standard-soft">(0)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783462002010">
-
-                    20,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1056594207" product-price="12.90" product-avail="Erscheint demnächst">Deeply von von Ava
-                  Reed</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/6a1db085ea9f4c9357204c4f606e8722016c3490-00-08.jpeg"
-                    alt="Deeply von von Ava Reed" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Deeply</li>
-                  <li class="element-text-standard detail autor">von Ava Reed</li>
-                  <li class="element-rating-standard detail bewertung" rating="0">
-                    <span class="element-text-standard-soft">(0)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783736313361">
-
-                    12,90
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059363814" product-price="22.00" product-avail="Sofort lieferbar">Über Menschen von von
-                  Juli Zeh</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/342e4d30fbe8f00b4555f0358ce427f82737428a-00-08.jpeg"
-                    alt="Über Menschen von von Juli Zeh" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Über Menschen</li>
-                  <li class="element-text-standard detail autor">von Juli Zeh</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(57)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783630876672">
-
-                    22,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059238315" product-price="16.00" product-avail="Sofort lieferbar">Miss Merkel von von
-                  David Safier</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/cf986ac2feb50946e24dcc1182a97bb4b7185e2c-00-08.jpeg"
-                    alt="Miss Merkel von von David Safier" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Miss Merkel</li>
-                  <li class="element-text-standard detail autor">von David Safier</li>
-                  <li class="element-rating-standard detail bewertung" rating="4">
-                    <span class="element-text-standard-soft">(26)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783463406657">
-
-                    16,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059238538" product-price="17.00" product-avail="Sofort lieferbar">Die Frauen von
-                  Kilcarrion von von Jojo Moyes</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/053ab6174b10b64fff241dad5abb1c782ed5a6d3-00-08.jpeg"
-                    alt="Die Frauen von Kilcarrion von von Jojo Moyes" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Die Frauen von Kilcarrion</li>
-                  <li class="element-text-standard detail autor">von Jojo Moyes</li>
-                  <li class="element-rating-standard detail bewertung" rating="4">
-                    <span class="element-text-standard-soft">(10)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783499267956">
-
-                    17,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059288340" product-price="22.00"
-                  product-avail="Erscheint demnächst (Neuerscheinung)">Die verschwundene Schwester von von Lucinda
-                  Riley</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/3aa69516853833eb77899448d1d223d1699cfdaa-00-08.jpeg"
-                    alt="Die verschwundene Schwester von von Lucinda Riley" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Die verschwundene Schwester</li>
-                  <li class="element-text-standard detail autor">von Lucinda Riley</li>
-                  <li class="element-rating-standard detail bewertung" rating="0">
-                    <span class="element-text-standard-soft">(0)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783442314485">
-
-                    22,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059364587" product-price="22.00" product-avail="Sofort lieferbar">Später von von Stephen
-                  King</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/02220f4e58e6d88d886a107eca9dcd4948c15248-00-08.jpeg"
-                    alt="Später von von Stephen King" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Später</li>
-                  <li class="element-text-standard detail autor">von Stephen King</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(40)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (gebundene Ausgabe)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783453273351">
-
-                    22,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059654411" product-price="11.99" product-avail="Sofort lieferbar">Fertig ist die Laube
-                  von von Renate Bergmann</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/c3b2da5cfe4513ea1a671b2486389bf0d3e41827-00-08.jpeg"
-                    alt="Fertig ist die Laube von von Renate Bergmann" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Fertig ist die Laube</li>
-                  <li class="element-text-standard detail autor">von Renate Bergmann</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(59)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783548062983">
-
-                    11,99
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059639926" product-price="16.00" product-avail="Erscheint demnächst">Der erste letzte
-                  Tag von von Sebastian Fitzek</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/501a0c7683486709b323ad4de58e6ef2d384c83a-00-08.jpeg"
-                    alt="Der erste letzte Tag von von Sebastian Fitzek" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Der erste letzte Tag</li>
-                  <li class="element-text-standard detail autor">von Sebastian Fitzek</li>
-                  <li class="element-rating-standard detail bewertung" rating="0">
-                    <span class="element-text-standard-soft">(0)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783426283868">
-
-                    16,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1058096367" product-price="12.00" product-avail="Sofort lieferbar">Ostfriesenzorn von von
-                  Klaus-Peter Wolf</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/834d37693cc43186f56c224f0c7a280effdf1965-00-08.jpeg"
-                    alt="Ostfriesenzorn von von Klaus-Peter Wolf" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Ostfriesenzorn</li>
-                  <li class="element-text-standard detail autor">von Klaus-Peter Wolf</li>
-                  <li class="element-rating-standard detail bewertung" rating="4">
-                    <span class="element-text-standard-soft">(51)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783596700080">
-
-                    12,00
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-              <li class="artikel">
-                <a class="layered-link"
-                  product-id="A1059410198" product-price="16.99" product-avail="Sofort lieferbar">Jaffa Road von von
-                  Daniel Speck</a>
-                <picture class="bild-box ">
-                  <img class="bild"
-                    src="https://assets.thalia.media/img/artikel/f526fb540e90ff41510644dfd77c8857e6641799-00-08.jpeg"
-                    alt="Jaffa Road von von Daniel Speck" loading="lazy" lazyload="1">
-                </picture>
-                <ul class="artikel-details">
-                  <li class="element-text-standard-strong detail titel">Jaffa Road</li>
-                  <li class="element-text-standard detail autor">von Daniel Speck</li>
-                  <li class="element-rating-standard detail bewertung" rating="5">
-                    <span class="element-text-standard-soft">(21)</span>
-                  </li>
-                  <li class="element-text-standard detail typ">Buch (Taschenbuch)</li>
-                  <li class="element-headline-small-strong-highlight detail preis"
-                    data-test="preisArtikel9783596703845">
-
-                    16,99
-                    &euro;
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul class="controls">
-              <li>
-                <button class="control-button icon-next">Nach rechts scrollen</button>
-              </li>
-              <li>
-                <button class="control-button icon-prev">Nach links scrollen</button>
-              </li>
-            </ul>
-          </slider-artikel>
-        </section>
-      </div>
-    </div>
-
-
-    <style>
-      section:not(.noMarginTop) .moduleRow:not(.row01) {
-        margin-top: .125rem;
-      }
-
-      section:not(.noMarginTop)>.moduleRow:not(.row01) {
-        margin-top: 2rem;
-      }
-    </style>
-
-    <customer-contact component="customer-contact" interaction="Footer Contact">
-      <link rel="stylesheet"
-        href="https://assets.thalia.media/red/cms/components/customer-contact/thalia.571ffd287c1d.css" />
-      <div class="contact-container">
-        <h3 class="element-text-standard-strong contact-headline">Haben Sie Fragen? Wir sind 24 Stunden für Sie da.</h3>
-        <ul class="contact-box">
-          <li class="element-box contact-box-card">
-            <a class="contact-box-card-link" caption="Fragen zum Einkauf">
-              <span class="element-link-standard-soft contact-box-card-link-label">Fragen zum Einkauf</span>
-            </a>
-          </li>
-          <li class="element-box contact-box-card">
-            <a class="contact-box-card-link" caption="Fragen zu eBook & eReader">
-              <span class="element-link-standard-soft contact-box-card-link-label">Fragen zu eBook & eReader</span>
-            </a>
-          </li>
-          <li class="element-box contact-box-card">
-            <a class="contact-box-card-link" caption="Kontakt per E-Mail">
-              <span class="element-link-standard-soft contact-box-card-link-label">Kontakt per E-Mail</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="contact-notes">
-          <li class="element-text-small">Bei Fragen zu eBook und Hörbuch Download: </li>
-          <li class="element-text-small">Mo - Fr 9 bis 18 Uhr und Sa 9.30 bis 18 Uhr</li>
-        </ul>
-      </div>
-    </customer-contact>
-
-    <footer-sitemap component="footer-sitemap">
-      <link rel="stylesheet"
-        href="https://assets.thalia.media/red/cms/components/footer-sitemap/thalia.c36773f9c67e.css" />
-      <script defer
-        src="https://assets.thalia.media/red/cms/components/footer-sitemap/footer-sitemap.e9a6bf066bae2a6e0983.js"></script>
-      <div class="sitemap-container">
-        <div class="sitemap-groups">
-          <details class="sitemap-group" interaction="Über Thalia" open>
-            <summary class="element-text-standard-strong sitemap-headline">Über Thalia <span
-                class="accordion-handle"></span></summary>
-            <ul class="sitemap-links">
-
-              <li class="sitemap-entry">
-                <a target="_blank" class="element-link-standard-soft sitemap-link"
-                  caption="Das Unternehmen">
-                  Das Unternehmen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a target="_blank"
-                  class="element-link-standard-soft sitemap-link" caption="Karriere">
-                  Karriere
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a target="_blank"
-                  class="element-link-standard-soft sitemap-link" caption="Presse">
-                  Presse
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a
-                  target="_blank" class="element-link-standard-soft sitemap-link" caption="B2B Thalia Mayersche">
-                  B2B Thalia Mayersche
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a href="http://www.bestofbooks.de/" target="_blank" class="element-link-standard-soft sitemap-link"
-                  caption="B.O.B">
-                  B.O.B
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a target="_blank"
-                  class="element-link-standard-soft sitemap-link" caption="Verantwortung">
-                  Verantwortung
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Impressum">
-                  Impressum
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="AGB">
-                  AGB
-                </a>
-              </li>
-            </ul>
-          </details>
-          <details class="sitemap-group" interaction="Kundenservice" open>
-            <summary class="element-text-standard-strong sitemap-headline">Kundenservice <span
-                class="accordion-handle"></span></summary>
-            <ul class="sitemap-links">
-
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Hilfe">
-                  Hilfe
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Kontakt">
-                  Kontakt
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Newsletter abbestellen">
-                  Newsletter abbestellen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Batterienrücknahme">
-                  Batterienrücknahme
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Service">
-                  Service
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Download-Code einlösen">
-                  Download-Code einlösen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Rücksendungen ">
-                  Rücksendungen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Filialen">
-                  Filialen
-                </a>
-              </li>
-            </ul>
-          </details>
-          <details class="sitemap-group" interaction="Rund um den Einkauf " open>
-            <summary class="element-text-standard-strong sitemap-headline">Rund um den Einkauf <span
-                class="accordion-handle"></span></summary>
-            <ul class="sitemap-links">
-
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Thalia App">
-                  Thalia App
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Benutzerdaten">
-                  Benutzerdaten
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Fragen zur Bestellung">
-                  Fragen zur Bestellung
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Kaufen">
-                  Kaufen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Bezahlen">
-                  Bezahlen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Versand und Lieferung">
-                  Versand und Lieferung
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Online-Gutscheine">
-                  Online-Gutscheine
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Datenschutzerklärung ">
-                  Datenschutzerklärung
-                </a>
-              </li>
-            </ul>
-          </details>
-          <details class="sitemap-group" interaction="Ihre Vorteile" open>
-            <summary class="element-text-standard-strong sitemap-headline">Ihre Vorteile <span
-                class="accordion-handle"></span></summary>
-            <ul class="sitemap-links">
-
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Lieblingsbuchhändler ">
-                  Lieblingsbuchhändler
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="Geschenkkarte ">
-                  Geschenkkarte
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Geschenkkarte für Unternehmen ">
-                  Geschenkkarte für Unternehmen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Partnerprogramm (Affiliate) ">
-                  Partnerprogramm (Affiliate)
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link"
-                  caption="Veranstaltungen ">
-                  Veranstaltungen
-                </a>
-              </li>
-              <li class="sitemap-entry">
-                <a class="element-link-standard-soft sitemap-link" caption="KultClub">
-                  KultClub
-                </a>
-              </li>
-            </ul>
-          </details>
-        </div>
-      </div>
-    </footer-sitemap>
-
-
-    <footer-benefits component="footer-benefits">
-      <link rel="stylesheet"
-        href="https://assets.thalia.media/red/cms/components/footer-benefits/thalia.4a0c254dc7ac.css" />
-      <div class="benefits-container">
-        <ul class="footer-benefits-list">
-          <li class="element-text-standard footer-benefits-list-item">kostenlose Filialabholung</li>
-          <li class="element-text-standard footer-benefits-list-item">Gratis-Buchversand innerhalb Deutschlands</li>
-          <li class="element-text-standard footer-benefits-list-item">Scan & Go</li>
-        </ul>
-        <a href="" interaction="more-link" class="element-link-standard footer-benefits-link">
-
-        </a>
-      </div>
-    </footer-benefits>
-    <footer-footnote component="footer-footnote" interaction="Footer Footnote">
-      <link rel="stylesheet"
-        href="https://assets.thalia.media/red/cms/components/footer-footnote/thalia.dea59304904c.css" />
-    </footer-footnote>
-
-  </div>
-
-
-<!-- VC JS Code -->
-
-<div class="container">
-  <div class="card-panel hide" id="resultsPanel">
-    <h6><u>Verwendeter Verifiable Credential:</u></h6>
-    <pre><code id="getResults"></code></pre>
-  </div>
+        <div class="container width-1200">
+          <div class="card-panel hide" id="resultsPanel">
+            <h4><u>Verwendeter Verifiable Credential:</u></h4>
+            <br>
+            <pre><code id="getResults"></code></pre>
+          </div>
 </div>
-<script>
-  async function onClickRequest() {
-    //   document.getElementById('getResults').innerHTML = ''; // clear results
-    const credentialQuery = {
-      "web": {
-        "VerifiablePresentation": {
-          "query": [{
-            "type": "QueryByExample",
-            "credentialQuery": {
-              "reason": "UniversityCredential for Alice Doe",
-              "example": {
-                "@context": [
-                  "https://w3id.org/credentials/v1",
-                  "https://www.w3.org/2018/credentials/examples/v1"
-                ],
-                "type": ["UniversityCredential"],
-                "credentialSubject": {
-                  "id": "did:example:alice"
-                }
-              }
-            }
-          }]
-        }
-      }
-    }
-
-    //console.log('Requesting credential...');
-    document.getElementById('getResults').innerText = 'Requesting credential...';
-
-    const result = await navigator.credentials.get(credentialQuery);
-
-    document.getElementById('resultsPanel').classList.remove('hide');
-    //document.getElementById('getResults').innerText = JSON.stringify(result, null, 2);
-    document.getElementById('getResults').innerText = JSON.stringify(verifiablePresentationThalia, null, 2);
-    document.getElementById('requestButton').innerText = "Vielen Dank. Surfe jetzt mit 30%!";
-    document.getElementById("requestButton").style.fontWeight = "900";
-    document.getElementById('requestButton').style.color = '#00a04b';
-    document.getElementById('requestButton').classList.add('no-click');
-    document.getElementById('requestButton').style.pointerEvents = "none";
-
-    //console.log('Result of receiving VC', JSON.stringify(result, null, 2));
-  }
-
-  const verifiablePresentationThalia = {
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1"
-    ],
-    "verifiableCredential": [{
-      "@context": [
-        "https://www.w3.org/2018/credentials/v1",
-        "https://www.w3.org/2018/credentials/examples/v1"
-      ],
-      "id": "http://example/uniqueIDofTheCredentials/1872",
-      "type": ["VerifiableCredential", "UniversityCredential"],
-      "issuer": "did:example:university",
-      "issuanceDate": "2021-03-01T19:73:24Z",
-      "credentialSubject": {
-        "id": "did:example:alice",
-        "alumniOf": {
-          "id": "did:example:university",
-          "name": {
-            "value": "TH Nürnberg",
-          }
-        }
-      },
-      "proof": {
-        "type": "RsaSignature2018",
-        "created": "2021-03-01T19:73:24Z",
-        "verificationMethod": "did:example:university",
-        "jws": "eyJhbGciOiJSUziYjY0Il19..TCYt5XsITJX1CxPCT8zS245-krQyHUdBBPM"
-      }
-    }],
-    "proof": {
-        "type": "RsaSignature2018",
-        "created": "2021-04-01T21:19:10Z",
-        "verificationMethod": "did:example:alice",
-        "jws": "DBjbefqiw329w324..wfjbQEHb243brh9wfwbsdwhqUY4W87"
-      }
-  };
-
-  function ready(fn) {
-    if (document.readyState !== 'loading') {
-      fn();
-    } else {
-      document.addEventListener('DOMContentLoaded', fn);
-    }
-  }
-
-  ready(() => {
-    document.getElementById('requestButton').addEventListener('click', onClickRequest);
-    console.log('Document ready.')
-  })
-
-  const MEDIATOR = 'https://authn.io/mediator' + '?origin=' +
-    encodeURIComponent(window.location.origin);
-
-  credentialHandlerPolyfill
-    .loadOnce(MEDIATOR)
-    .then(console.log('Polyfill loaded.'))
-    .catch(e => console.error('Error loading polyfill:', e));
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 </body>
 </html>
